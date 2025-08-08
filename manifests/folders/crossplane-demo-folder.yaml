@@ -1,6 +1,9 @@
+apiVersion: oss.grafana.crossplane.io/v1alpha1
 kind: Folder
 metadata:
-  name: crossplane-created-demo-folder
+  name: crossplane-demo
+  labels:
+    demo.philmoses.com/example-name: crossplane-demo
 spec:
   providerConfigRef:
     name: grafana-provider
