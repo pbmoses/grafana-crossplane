@@ -1,0 +1,8 @@
+kind: Folder
+metadata:
+  name: crossplane-created-demo-folder
+spec:
+  providerConfigRef:
+    name: grafana-provider
+  forProvider:
+    title: Crossplane Demo Folder
