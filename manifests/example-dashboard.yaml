@@ -12,7 +12,7 @@ spec:
         "panels": [
           {
             "type": "text",
-            "title": "Hello from Crossplane",
+            "title": "Goodbye from Crossplane",
             "gridPos": { "x": 0, "y": 0, "w": 24, "h": 4 },
             "options": {
               "content": "This dashboard was provisioned using Crossplane!",
@@ -21,5 +21,8 @@ spec:
           }
         ]
       }
+    folderSelector:
+      matchLabels:
+        demo.philmoses.com/example-name: crossplane-demo 
   providerConfigRef:
     name: grafana-provider
