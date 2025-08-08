@@ -178,9 +178,12 @@ Events:                    <none>
 
 ## Creating folders
 ```
+apiVersion: oss.grafana.crossplane.io/v1alpha1
 kind: Folder
 metadata:
-  name: crossplane-created-demo-folder
+  name: crossplane-demo
+  labels:
+    demo.philmoses.com/example-name: crossplane-demo
 spec:
   providerConfigRef:
     name: grafana-provider
@@ -248,7 +251,7 @@ Events:
 apiVersion: oss.grafana.crossplane.io/v1alpha1
 kind: Dashboard
 metadata:
-  name: crossplane-example-dashboard
+  name: example-dashboard
   namespace: crossplane-system
 spec:
   forProvider:
@@ -259,7 +262,7 @@ spec:
         "panels": [
           {
             "type": "text",
-            "title": "Hello from Crossplane",
+            "title": "Goodbye from Crossplane",
             "gridPos": { "x": 0, "y": 0, "w": 24, "h": 4 },
             "options": {
               "content": "This dashboard was provisioned using Crossplane!",
@@ -268,6 +271,9 @@ spec:
           }
         ]
       }
+    folderSelector:
+      matchLabels:
+        demo.philmoses.com/example-name: crossplane-demo 
   providerConfigRef:
     name: grafana-provider
 ```
