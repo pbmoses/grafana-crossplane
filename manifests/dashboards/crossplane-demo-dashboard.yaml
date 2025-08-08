@@ -1,0 +1,25 @@
+apiVersion: oss.grafana.crossplane.io/v1alpha1
+kind: Dashboard
+metadata:
+  name: crossplane-example-dashboard
+  namespace: crossplane-system
+spec:
+  forProvider:
+    configJson: |
+      {
+        "title": "Crossplane Example Dashboard",
+        "uid": "example-dashboard",
+        "panels": [
+          {
+            "type": "text",
+            "title": "Hello from Crossplane",
+            "gridPos": { "x": 0, "y": 0, "w": 24, "h": 4 },
+            "options": {
+              "content": "This dashboard was provisioned using Crossplane!",
+              "mode": "markdown"
+            }
+          }
+        ]
+      }
+  providerConfigRef:
+    name: grafana-provider
