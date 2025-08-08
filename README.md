@@ -1,3 +1,28 @@
+# The following is the beginning of an "as code" approach to Observability utilizing [Crossplane](https://www.crossplane.io/) and [Grafana Cloud](https://grafana.com/products/cloud/)
+
+Observability as Code is the practice of defining, managing, and automating observability tools (like logging, metrics, traces, dashboards, and alerts) using code—typically version-controlled and automated through CI/CD pipelines—rather than manual setup. 
+
+The following information is for demonstrative purposes, offering an entry point and is not a be-all-end-all for Observability as Code nor for Crossplane. 
+
+It is assumed that you have a healthy Kubernetes cluster. If you do not, options available as `kind` 
+
+## Installing Crossplane
+`helm repo add crossplane-stable https://charts.crossplane.io/stable`
+and
+`helm repo update`
+
+## Creating the Provider
+[Providers](https://docs.crossplane.io/latest/concepts/providers/) in Crossplane allow us to Provision infrastructure and services. Providers are controllers that understand how to manage resources in external systems. Declarative approaches are utilized via Kubernetes manifests, you will declare the state and Kubernetes will reconcile to meet the declaration. 
+
+For the following demo, the [Grafana Crosplane Provider](https://github.com/grafana/crossplane-provider-grafana) is utilized. 
+
+## Creating the providerConfig
+
+## Creating folders
+
+## Creating dashboards
+
+
 ``` bash
 k create -f cp.yaml
 ```
