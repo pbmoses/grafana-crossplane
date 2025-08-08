@@ -8,7 +8,9 @@ It is assumed that you have a healthy Kubernetes cluster. If you do not, options
 
 ## Installing Crossplane
 `helm repo add crossplane-stable https://charts.crossplane.io/stable`
+
 and
+
 `helm repo update`
 
 ## Creating the Provider
