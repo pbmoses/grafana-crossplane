@@ -13,48 +13,7 @@ and
 
 `helm repo update`
 
-## Creating the secret
-
-A secret is required to configure access to the external resources, in this case Grafana Cloud. Ideally, a secrets manager and something similar to the External Secrets Operator should be utilized to protect sensitive data. For the demo, we will use a standard Kubernetes secret. 
-
-The manifests directory of this repo contains the needed manifests, 
-
-``` bash
-apiVersion: v1
-kind: Secret
-metadata:
-  name: grafana-credentials
-  namespace: crossplane-system
-type: Opaque
-
-##please don't put sensitive info in git use a secrets manager, this is just for demo purposes. 
-stringData:
-  credentials: |
-    {
-      "url": "your grafana URL:'
-      "auth": "g.........."
-    }
-```
-
-
-## Creating the Provider
-[Providers](https://docs.crossplane.io/latest/concepts/providers/) in Crossplane allow us to Provision infrastructure and services. Providers are controllers that understand how to manage resources in external systems. Declarative approaches are utilized via Kubernetes manifests, you will declare the state and Kubernetes will reconcile to meet the declaration. 
-
-For the following demo, the [Grafana Crosplane Provider](https://github.com/grafana/crossplane-provider-grafana) is utilized. 
-
-## Creating the providerConfig
-
-## Creating folders
-
-## Creating dashboards
-
-
-``` bash
-k create -f cp.yaml
-```
-
-
-validate 
+Validate:
 ```
 raspi64-0:~#  kubectl get crds | grep grafana | grep crossplane
 accesspolicies.cloud.grafana.crossplane.io                          2025-08-07T00:02:07Z
@@ -82,4 +41,104 @@ datasources.oss.grafana.crossplane.io                               2025-08-07T0
 escalationchains.oncall.grafana.crossplane.io                       2025-08-07T00:02:08Z
 escalations.oncall.grafana.crossplane.io                            2025-08-07T00:02:08Z
 ```
+
+
+## Creating the secret
+
+A secret is required to configure access to the external resources, in this case Grafana Cloud. Ideally, a secrets manager and something similar to the External Secrets Operator should be utilized to protect sensitive data. For the demo, we will use a standard Kubernetes secret. 
+
+
+``` bash
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-credentials
+  namespace: crossplane-system
+type: Opaque
+
+##please don't put sensitive info in git use a secrets manager, this is just for demo purposes. 
+stringData:
+  credentials: |
+    {
+      "url": "your grafana URL:'
+      "auth": "g.........."
+    }
+```
+
+
+## Creating the Provider
+[Providers](https://docs.crossplane.io/latest/concepts/providers/) in Crossplane allow us to Provision infrastructure and services. Providers are controllers that understand how to manage resources in external systems. Declarative approaches are utilized via Kubernetes manifests, you will declare the state and Kubernetes will reconcile to meet the declaration. 
+
+For the following demo, the [Grafana Crosplane Provider](https://github.com/grafana/crossplane-provider-grafana) is utilized. 
+
+```
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-grafana
+spec:
+  package: xpkg.upbound.io/grafana/provider-grafana:v0.30.0
+```
+
+## Creating the providerConfig
+
+```
+kind: ProviderConfig
+metadata:
+  name: grafana-provider
+  namespace: crossplane-system
+spec:
+  credentials:
+    source: Secret
+    secretRef:
+      namespace: crossplane-system
+      name: grafana-credentials
+      key: credentials
+  endpoint: https://<SLUG>.grafana.net
+  ```
+## Creating folders
+```
+kind: Folder
+metadata:
+  name: crossplane-created-demo-folder
+spec:
+  providerConfigRef:
+    name: grafana-provider
+  forProvider:
+    title: Crossplane Demo Folder
+```
+## Creating dashboards
+```
+apiVersion: oss.grafana.crossplane.io/v1alpha1
+kind: Dashboard
+metadata:
+  name: crossplane-example-dashboard
+  namespace: crossplane-system
+spec:
+  forProvider:
+    configJson: |
+      {
+        "title": "Crossplane Example Dashboard",
+        "uid": "example-dashboard",
+        "panels": [
+          {
+            "type": "text",
+            "title": "Hello from Crossplane",
+            "gridPos": { "x": 0, "y": 0, "w": 24, "h": 4 },
+            "options": {
+              "content": "This dashboard was provisioned using Crossplane!",
+              "mode": "markdown"
+            }
+          }
+        ]
+      }
+  providerConfigRef:
+    name: grafana-provider
+```
+
+<img width="1031" height="288" alt="Screenshot 2025-08-08 at 1 57 24 PM" src="https://github.com/user-attachments/assets/391042fa-f782-4ded-bfa2-e743016ca0aa" />
+
+
+
+
 
