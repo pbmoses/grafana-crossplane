@@ -49,7 +49,7 @@ escalations.oncall.grafana.crossplane.io                            2025-08-07T0
 
 ## Creating the secret
 
-A secret is required to configure access to the external resources, in this case Grafana Cloud. Ideally, a secrets manager and something similar to the External Secrets Operator should be utilized to protect sensitive data. For the demo, we will use a standard Kubernetes secret. 
+A secret is required to configure access to the external resources, in this case Grafana Cloud. Ideally, a secrets manager along with something similar to the External Secrets Operator should be utilized to protect sensitive data. For the demo, we will use a standard Kubernetes secret. 
 
 
 ``` bash
