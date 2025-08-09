@@ -40,7 +40,7 @@ for folder in folders_json:
             },
             "providerConfigRef": {
                 "name": "grafana-provider"
-            }
+            },
             "deletionPolicy": "Delete"
         }
     }
