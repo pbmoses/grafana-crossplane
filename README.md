@@ -14,7 +14,7 @@ Observability as Code is the practice of defining, managing, and automating obse
 
 The following information is for demonstrative purposes, offering an entry point and is not a be-all-end-all for Observability as Code nor for Crossplane. 
 
-It is assumed that you have a healthy Kubernetes cluster and some experience with Kubernetes. The manifests directory of this repo contains the needed manifests, they will also be demonstrated below. [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) is the GitOps tooling that I normally utilize to manage provisioning, while there is some overlap, I see these tools as being complimentary to one another. 
+It is assumed that you have a healthy Kubernetes cluster [Brief notes on Raspeberry pi +k3s](https://github.com/pbmoses/k3s-1) and some experience with Kubernetes. The manifests directory of this repo contains the needed manifests, they will also be demonstrated below. [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) is the GitOps tooling that I normally utilize to manage provisioning, while there is some overlap, I see these tools as being complimentary to one another. 
 
 Why Crossplane? 
 
