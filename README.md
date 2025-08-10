@@ -1,6 +1,6 @@
 # The following is the beginning of an "as code" approach to Observability utilizing [Crossplane](https://www.crossplane.io/) and [Grafana Cloud](https://grafana.com/products/cloud/)
 
-*Disclaimer: The setup is for demonstration purposes and is not Grafana official documentation or configuration. It's a proof of concept.* 
+*Disclaimer: The setup is for demonstration purposes and is not Grafana official documentation or configuration. It's a proof of concept. This was developed on an ultra low cost Raspberry Pi k3s cluster.* 
 
 Observability as Code is the practice of defining, managing, and automating observability tools (like logging, metrics, traces, dashboards, and alerts) using code—typically version-controlled and automated through CI/CD pipelines—rather than manual setup. 
 
