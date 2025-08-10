@@ -28,7 +28,8 @@ and
 `helm repo update`
 
 and finally:
-`    helm install crossplane --namespace crossplane-system --create-namespace crossplane-stable/crossplane`
+
+`helm install crossplane --namespace crossplane-system --create-namespace crossplane-stable/crossplane`
 
 
 ## Creating the token in Grafana Cloud
