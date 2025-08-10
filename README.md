@@ -413,5 +413,6 @@ Various APIs can be utilized to interact with Grafana Cloud, that output can be 
 </svg>
 
 
-The `parsers` directory contains multiple Python parsers that will take a JSON input file and output the appropriate Kubernetes manifests. 
+
+*The `parsers` directory contains multiple Python parsers that will take a JSON input file and output the appropriate Kubernetes manifests.*
 
