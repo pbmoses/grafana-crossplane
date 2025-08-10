@@ -413,6 +413,53 @@ Various APIs can be utilized to interact with Grafana Cloud, that output can be 
 </svg>
 
 
+# Interacting with APIs
+
+Utilizing the Grafana Cloud APIs is fairly straight forward, considering you have the correct token and endpoint.
+
+`curl -H "Authorization: Bearer "<token>" -H "Content-Type: application/json" https://<SLUG>.grafana.net/api/folders| jq .`
+
+A successful query to the folders enpoint should return data similar to the following, which can be redirected to a file with common *nix tools. The resulting file will be the input file for the Python parser:  `curl -H "Authorization: Bearer "<token>" -H "Content-Type: application/json" https://<SLUG>.grafana.net/api/folders| jq . > folders.json`:
+
+```
+[
+  {
+    "id": 108,
+    "uid": "feui7sfwdd0cgc",
+    "title": "Crossplane Demo Folder"
+  },
+  {
+    "id": 66,
+    "uid": "bdpkwahk6emm8e",
+    "title": "declarative-grafana"
+  },
+  {
+    "id": 2,
+    "uid": "fdjqenyj148aof",
+    "title": "GrafanaCloud"
+  },
+  {
+    "id": 81,
+    "uid": "integration---linux-node",
+    "title": "Integration - Linux Node"
+  },
+  {
+    "id": 68,
+    "uid": "integration---macos-node",
+    "title": "Integration - MacOS Node"
+  },
+  {
+    "id": 75,
+    "uid": "integration---microsoft-sql-server",
+    "title": "Integration - Microsoft SQL Server"
+  },
+  {
+    "id": 44,
+    "uid": "grafana-demodashboards-weather",
+    "title": "⛅ Grafana Weather Demo Dashboards"
+  }
+]
+```
 
 *The `parsers` directory contains multiple Python parsers that will take a JSON input file and output the appropriate Kubernetes manifests.*
 
