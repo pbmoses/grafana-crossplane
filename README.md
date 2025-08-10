@@ -48,10 +48,14 @@ escalationchains.oncall.grafana.crossplane.io                       2025-08-07T0
 escalations.oncall.grafana.crossplane.io                            2025-08-07T00:02:08Z
 ```
 
+## Creating the token in Grafana Cloud
+
+<insert screenshots and/or API process> 
+
 
 ## Creating the secret
 
-A secret is required to configure access to the external resources, in this case Grafana Cloud. Ideally, a secrets manager along with something similar to the External Secrets Operator should be utilized to protect sensitive data. For the demo, we will use a standard Kubernetes secret. 
+A secret is required to configure access to the external resources, in this case Grafana Cloud. Ideally, a secrets manager along with something similar to the External Secrets Operator should be utilized to protect sensitive data. For the demo, we will use a standard Kubernetes secret. The auth is the token that was created in the previous step. 
 
 
 ``` bash
