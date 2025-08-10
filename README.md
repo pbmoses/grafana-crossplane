@@ -133,6 +133,8 @@ Events:                    <none>
 
 ## Creating the providerConfig
 
+Provider Configs are Custom Resources in Kubernetes that allow the provider to interact with the API. In this case, `crossplane-provider-grafana` and the `Grfana Cloud` API(s).
+
 ```
 kind: ProviderConfig
 metadata:
@@ -183,6 +185,9 @@ Events:                    <none>
 ```
 
 ## Creating folders
+
+The following is an example of a foldr creation in Grafana Cloud. 
+
 ```
 apiVersion: oss.grafana.crossplane.io/v1alpha1
 kind: Folder
@@ -252,6 +257,8 @@ Events:
 ```
 
 ## Creating dashboards
+
+The Following is an example of a dashboard in Grafana Cloud. 
 
 ```
 apiVersion: oss.grafana.crossplane.io/v1alpha1
