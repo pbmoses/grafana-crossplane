@@ -413,7 +413,7 @@ Various APIs can be utilized to interact with Grafana Cloud, that output can be 
 <text x="790" y="290" font-size="10" text-anchor="middle" fill="#000">(Crossplane)</text>
 
 <rect x="920" y="250" width="120" height="60" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf"/>
-<text x="980" y="285" font-size="12" text-anchor="middle" fill="#000">Cloud Provider</text>
+<text x="980" y="285" font-size="12" text-anchor="middle" fill="#000">Grafana Cloud</text>
 
 <!-- Arrows -->
 <line x1="140" y1="150" x2="180" y2="150" stroke="#000" marker-end="url(#arrow)" />
