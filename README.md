@@ -147,7 +147,7 @@ escalations.oncall.grafana.crossplane.io                            2025-08-07T0
 
 ## Creating the providerConfig
 
-Provider Configs are Custom Resources in Kubernetes that allow the provider to interact with the API. In this case, `crossplane-provider-grafana` and the `Grfana Cloud` API(s).
+Provider Configs are Custom Resources in Kubernetes that allow the provider to interact with the API. In this case, `crossplane-provider-grafana` and the `Grafana Cloud` API(s).
 
 ```
 kind: ProviderConfig
