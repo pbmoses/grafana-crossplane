@@ -388,7 +388,7 @@ Events:
 
 The `parsers` directory contains multiple Python parsers that will take a JSON input file and output the appropriate Kubernetes manifests.  
 
-Various APIs can be utilized to interact with Grafana Cloud, that output can be parsed and Crossplane comatible manifests. Initial thoughts are to approach this in the following manner:
+Various APIs can be utilized to interact with Grafana Cloud, that output can be parsed and Crossplane compatible manifests. Initial thoughts are to approach this in the following manner:
 ![crossplane_flow_with_api](https://github.com/user-attachments/assets/e8dd0c35-d4f3-414a-83c8-d8af87ff7c6c)
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="400">
 <rect x="20" y="120" width="120" height="60" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00"/>
