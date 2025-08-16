@@ -34,8 +34,7 @@ and finally:
 
 ## Creating the token in Grafana Cloud
 
-<insert screenshots and/or API process> 
-
+<img width="633" height="515" alt="Screenshot 2025-08-16 at 2 32 26 PM" src="https://github.com/user-attachments/assets/f0112224-4fe7-405c-a353-8bffe2511017" />
 
 ## Creating the secret
 
@@ -54,8 +53,8 @@ type: Opaque
 stringData:
   credentials: |
     {
-      "url": "your grafana URL:'
-      "auth": "g.........."
+      "url": "<your slug>.grafana.net:'
+      "auth": "<token>"
     }
 ```
 
