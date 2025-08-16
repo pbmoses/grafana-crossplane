@@ -38,7 +38,7 @@ and finally:
 
 ## Creating the secret
 
-A secret is required to configure access to the external resources, in this case Grafana Cloud. Ideally, a secrets manager along with something similar to the External Secrets Operator should be utilized to protect sensitive data. For the demo, we will use a standard Kubernetes secret. The auth is the token that was created in the previous step. 
+A secret is required to configure access to the external resources, in this case Grafana Cloud. Ideally, a secrets manager along with something similar to the External Secrets Operator should be utilized to protect sensitive data. For the demo, we will use a standard Kubernetes secret with stringData for simplicity. The auth is the token that was created in the previous step. 
 
 
 ``` bash
@@ -53,7 +53,7 @@ type: Opaque
 stringData:
   credentials: |
     {
-      "url": "<your slug>.grafana.net:'
+      "url": "<your slug>.grafana.net'
       "auth": "<token>"
     }
 ```
